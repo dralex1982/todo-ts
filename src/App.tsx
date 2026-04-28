@@ -6,6 +6,7 @@ function App() {
     const [tasks, setTasks] = useState<Map<number, string>>(new Map());
 
     console.log("App rendered");
+
     const deleteTask = useCallback((index: number) => {
         setTasks(prev => {
             const newTasks = new Map(prev);
@@ -23,7 +24,7 @@ function App() {
     }, [])
 
     const addTask = useCallback(() => {
-        setTasks(new Map([...tasks]).set(tasks.size, 'New task'));
+        setTasks(new Map([...tasks]).set(Date.now(), 'New task'));
     }, [tasks])
 
     return (
